@@ -7,7 +7,7 @@
 
 body {
   font-family: 'Inter', 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-  background: linear-gradient(135deg, #1a1a1a 0%, #2d2d2d 100%);
+  background: #000000;
   min-height: 100vh;
   display: flex;
   align-items: center;
@@ -25,26 +25,70 @@ body {
 }
 
 .container {
-  background: rgba(42, 42, 42, 0.95);
+  background: rgba(0, 0, 0, 0.95);
   border-radius: 20px;
   padding: 40px;
-  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.5);
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.8);
   backdrop-filter: blur(10px);
-  border: 1px solid rgba(255, 193, 7, 0.2);
+  border: 2px solid rgba(255, 255, 255, 0.1);
   text-align: center;
-  max-width: 500px;
+  max-width: 600px;
   width: 100%;
+}
+
+/* Navigation Bar */
+.navbar {
+  display: flex;
+  justify-content: center;
+  gap: 10px;
+  margin-bottom: 30px;
+  background: rgba(255, 255, 255, 0.05);
+  border-radius: 15px;
+  padding: 15px;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.nav-btn {
+  padding: 12px 24px;
+  border: 2px solid rgba(255, 255, 255, 0.2);
+  border-radius: 25px;
+  background: transparent;
+  color: #ffffff;
+  font-size: 1rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  min-width: 80px;
+}
+
+.nav-btn:hover {
+  transform: translateY(-2px);
+  border-color: rgba(255, 255, 255, 0.5);
+  background: rgba(255, 255, 255, 0.1);
+  box-shadow: 0 4px 12px rgba(255, 255, 255, 0.1);
+}
+
+.nav-btn.active {
+  background: #ffffff;
+  color: #000000;
+  border-color: #ffffff;
+  font-weight: 700;
+  box-shadow: 0 4px 15px rgba(255, 255, 255, 0.3);
+}
+
+.nav-btn.active:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 8px 20px rgba(255, 255, 255, 0.4);
 }
 
 .title {
   font-size: 3rem;
   font-weight: 700;
-  background: linear-gradient(135deg, #ffc107 0%, #ffeb3b 100%);
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
-  background-clip: text;
+  color: #ffffff;
   margin-bottom: 30px;
-  text-shadow: 0 2px 4px rgba(255, 193, 7, 0.3);
+  text-shadow: 0 2px 4px rgba(0, 0, 0, 0.5);
 }
 
 /* Scoreboard */
@@ -52,11 +96,11 @@ body {
   display: flex;
   justify-content: space-between;
   margin-bottom: 30px;
-  background: rgba(255, 193, 7, 0.1);
+  background: rgba(255, 255, 255, 0.05);
   border-radius: 15px;
   padding: 20px;
   backdrop-filter: blur(5px);
-  border: 1px solid rgba(255, 193, 7, 0.2);
+  border: 1px solid rgba(255, 255, 255, 0.1);
 }
 
 .score-item {
@@ -76,15 +120,15 @@ body {
 .score {
   font-size: 1.5rem;
   font-weight: 700;
-  color: #ffc107;
+  color: #ffffff;
 }
 
 .player-x {
-  color: #ffc107;
+  color: #ffffff;
 }
 
 .player-o {
-  color: #17a2b8;
+  color: #ffffff;
 }
 
 .draws {
@@ -104,20 +148,20 @@ body {
 }
 
 .current-player.x {
-  color: #ffc107;
+  color: #ffffff;
 }
 
 .current-player.o {
-  color: #17a2b8;
+  color: #ffffff;
 }
 
 .winner.x {
-  color: #ffc107;
+  color: #ffffff;
   animation: celebrate 0.6s ease-in-out;
 }
 
 .winner.o {
-  color: #17a2b8;
+  color: #ffffff;
   animation: celebrate 0.6s ease-in-out;
 }
 
@@ -134,23 +178,34 @@ body {
 /* Game board */
 .board {
   display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  gap: 10px;
+  gap: 8px;
   margin-bottom: 30px;
   padding: 20px;
-  background: rgba(255, 193, 7, 0.05);
+  background: rgba(255, 255, 255, 0.02);
   border-radius: 15px;
   backdrop-filter: blur(5px);
-  border: 1px solid rgba(255, 193, 7, 0.1);
+  border: 1px solid rgba(255, 255, 255, 0.05);
+  justify-content: center;
+}
+
+/* Dynamic grid layouts for different board sizes */
+.board[data-size="3"] {
+  grid-template-columns: repeat(3, 1fr);
+}
+
+.board[data-size="4"] {
+  grid-template-columns: repeat(4, 1fr);
+}
+
+.board[data-size="5"] {
+  grid-template-columns: repeat(5, 1fr);
 }
 
 .cell {
-  width: 100px;
-  height: 100px;
-  background: rgba(58, 58, 58, 0.8);
+  background: rgba(255, 255, 255, 0.05);
   border: none;
   border-radius: 12px;
-  font-size: 2.5rem;
+  font-size: 2rem;
   font-weight: 700;
   cursor: pointer;
   transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
@@ -161,14 +216,33 @@ body {
   position: relative;
   overflow: hidden;
   color: #ffffff;
-  border: 2px solid rgba(255, 193, 7, 0.2);
+  border: 2px solid rgba(255, 255, 255, 0.1);
+}
+
+/* Cell sizes for different board sizes */
+.cell[data-size="3"] {
+  width: 100px;
+  height: 100px;
+  font-size: 2.5rem;
+}
+
+.cell[data-size="4"] {
+  width: 80px;
+  height: 80px;
+  font-size: 2rem;
+}
+
+.cell[data-size="5"] {
+  width: 70px;
+  height: 70px;
+  font-size: 1.8rem;
 }
 
 .cell:hover:not(:disabled) {
   transform: translateY(-2px);
-  box-shadow: 0 8px 16px rgba(255, 193, 7, 0.3);
-  background: rgba(68, 68, 68, 0.9);
-  border-color: rgba(255, 193, 7, 0.5);
+  box-shadow: 0 8px 16px rgba(255, 255, 255, 0.1);
+  background: rgba(255, 255, 255, 0.1);
+  border-color: rgba(255, 255, 255, 0.3);
 }
 
 .cell:active:not(:disabled) {
@@ -181,16 +255,16 @@ body {
 }
 
 .cell.x {
-  color: #ffc107;
-  background: rgba(68, 68, 68, 0.9);
-  border-color: #ffc107;
+  color: #ffffff;
+  background: rgba(255, 255, 255, 0.1);
+  border-color: #ffffff;
   animation: popIn 0.3s cubic-bezier(0.68, -0.55, 0.265, 1.55);
 }
 
 .cell.o {
-  color: #17a2b8;
-  background: rgba(68, 68, 68, 0.9);
-  border-color: #17a2b8;
+  color: #ffffff;
+  background: rgba(255, 255, 255, 0.1);
+  border-color: #ffffff;
   animation: popIn 0.3s cubic-bezier(0.68, -0.55, 0.265, 1.55);
 }
 
@@ -247,26 +321,29 @@ body {
 }
 
 .btn-primary {
-  background: linear-gradient(135deg, #ffc107 0%, #ffeb3b 100%);
-  color: #1a1a1a;
-  box-shadow: 0 4px 15px rgba(255, 193, 7, 0.3);
+  background: #ffffff;
+  color: #000000;
+  box-shadow: 0 4px 15px rgba(255, 255, 255, 0.2);
   font-weight: 700;
 }
 
 .btn-primary:hover {
   transform: translateY(-2px);
-  box-shadow: 0 8px 25px rgba(255, 193, 7, 0.4);
+  box-shadow: 0 8px 25px rgba(255, 255, 255, 0.3);
 }
 
 .btn-secondary {
-  background: linear-gradient(135deg, #6c757d 0%, #495057 100%);
-  color: white;
-  box-shadow: 0 4px 15px rgba(108, 117, 125, 0.3);
+  background: transparent;
+  color: #ffffff;
+  border: 2px solid rgba(255, 255, 255, 0.3);
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
 }
 
 .btn-secondary:hover {
   transform: translateY(-2px);
-  box-shadow: 0 8px 25px rgba(108, 117, 125, 0.4);
+  background: rgba(255, 255, 255, 0.1);
+  border-color: rgba(255, 255, 255, 0.5);
+  box-shadow: 0 8px 25px rgba(255, 255, 255, 0.1);
 }
 
 .btn:active {
@@ -274,24 +351,56 @@ body {
 }
 
 /* Responsive design */
-@media (max-width: 480px) {
+@media (max-width: 600px) {
   .container {
     padding: 20px;
     margin: 10px;
+    max-width: 95vw;
   }
   
   .title {
-    font-size: 2.5rem;
+    font-size: 2rem;
   }
   
-  .cell {
-    width: 80px;
-    height: 80px;
+  .navbar {
+    padding: 10px;
+    gap: 8px;
+  }
+  
+  .nav-btn {
+    padding: 8px 16px;
+    font-size: 0.9rem;
+    min-width: 60px;
+  }
+  
+  .cell[data-size="3"] {
+    width: 70px;
+    height: 70px;
     font-size: 2rem;
+  }
+  
+  .cell[data-size="4"] {
+    width: 60px;
+    height: 60px;
+    font-size: 1.5rem;
+  }
+  
+  .cell[data-size="5"] {
+    width: 50px;
+    height: 50px;
+    font-size: 1.3rem;
   }
   
   .scoreboard {
     padding: 15px;
+    flex-direction: column;
+    gap: 10px;
+  }
+  
+  .score-item {
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
   }
   
   .controls {
@@ -308,19 +417,19 @@ body {
 /* Dark theme elements */
 @media (prefers-color-scheme: dark) {
   .container {
-    background: rgba(30, 32, 37, 0.95);
-    color: #e0e0e0;
-    border-color: rgba(255, 193, 7, 0.3);
+    background: rgba(0, 0, 0, 0.98);
+    color: #ffffff;
+    border-color: rgba(255, 255, 255, 0.15);
   }
   
   .cell {
-    background: rgba(45, 48, 55, 0.8);
+    background: rgba(255, 255, 255, 0.03);
     color: #ffffff;
-    border-color: rgba(255, 193, 7, 0.2);
+    border-color: rgba(255, 255, 255, 0.08);
   }
   
   .cell:hover:not(:disabled) {
-    background: rgba(55, 58, 65, 0.9);
-    border-color: rgba(255, 193, 7, 0.5);
+    background: rgba(255, 255, 255, 0.08);
+    border-color: rgba(255, 255, 255, 0.2);
   }
 }
