@@ -1,69 +1,72 @@
-# React + TypeScript + Vite
+# ✨ XO Game (เกม XO) ✨
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+โปรเจกต์นี้เป็นเกม XO (หรือ Tic Tac Toe) ที่สร้างด้วย **TypeScript**, **JavaScript**, **CSS**, และ **HTML**  
+เหมาะสำหรับการเรียนรู้โครงสร้างโปรเจกต์เว็บแอปพลิเคชันขนาดเล็ก รวมถึงการฝึกฝนการใช้งาน TypeScript และการออกแบบส่วนติดต่อผู้ใช้
 
-Currently, two official plugins are available:
+---
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+## 🎮 ฟีเจอร์
 
-## Expanding the ESLint configuration
+- 🔥 เล่น XO ระหว่างผู้เล่น 2 คน
+- 🏆 ตรวจสอบผลแพ้-ชนะ หรือเสมอโดยอัตโนมัติ
+- 🎨 UI สวยงาม ใช้งานง่าย
+- 🛠️ พัฒนาและจัดการโค้ดด้วย TypeScript
+- 💅 จัดการสไตล์ด้วย CSS
 
-If you are developing a production application, we recommend updating the configuration to enable type-aware lint rules:
+---
 
-```js
-export default tseslint.config([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
+## 🚀 วิธีติดตั้งและเริ่มต้น
 
-      // Remove tseslint.configs.recommended and replace with this
-      ...tseslint.configs.recommendedTypeChecked,
-      // Alternatively, use this for stricter rules
-      ...tseslint.configs.strictTypeChecked,
-      // Optionally, add this for stylistic rules
-      ...tseslint.configs.stylisticTypeChecked,
+1. **Clone Repository**
+    ```bash
+    git clone https://github.com/etsuwithtea/xo_game.git
+    cd xo_game
+    ```
 
-      // Other configs...
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
+2. **ติดตั้ง Dependencies** (ถ้ามีการใช้ package manager เช่น npm หรือ yarn)
+    ```bash
+    npm install
+    ```
+
+3. **เริ่มต้นเซิร์ฟเวอร์ (ถ้ามี) หรือเปิดไฟล์ `index.html` ในเบราว์เซอร์**
+    ```bash
+    npm start
+    ```
+    หรือเปิดไฟล์ `index.html` ด้วยเบราว์เซอร์โดยตรง
+
+---
+
+## 📁 โครงสร้างโปรเจกต์
+
+```
+xo_game/
+├── src/            # ไฟล์ TypeScript/JavaScript หลัก
+├── styles/         # ไฟล์ CSS
+├── index.html      # HTML หลัก
+├── README.md
+└── ...
 ```
 
-You can also install [eslint-plugin-react-x](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-x) and [eslint-plugin-react-dom](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-dom) for React-specific lint rules:
+---
 
-```js
-// eslint.config.js
-import reactX from 'eslint-plugin-react-x'
-import reactDom from 'eslint-plugin-react-dom'
+## 🕹️ วิธีเล่น
 
-export default tseslint.config([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
-      // Enable lint rules for React
-      reactX.configs['recommended-typescript'],
-      // Enable lint rules for React DOM
-      reactDom.configs.recommended,
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
-```
+1. เปิดหน้าเว็บของเกม XO
+2. กดที่ช่องตารางเพื่อวาง X หรือ O สลับกันระหว่างผู้เล่นสองคน
+3. ระบบจะตรวจสอบผลอัตโนมัติเมื่อมีผู้ชนะหรือเสมอ
+
+---
+
+## 👨‍💻 ผู้พัฒนา
+
+- [etsuwithtea](https://github.com/etsuwithtea)
+
+---
+
+## 📄 License
+
+This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
+
+---
+
+> 💬 สอบถามหรือแนะนำเพิ่มเติม สามารถเปิด Issue ใหม่ได้ใน Repository นี้
