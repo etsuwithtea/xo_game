@@ -63,10 +63,6 @@ xo_game/
 
 ---
 
-## 📄 License
-
-This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
-
 ---
 
 > 💬 สอบถามหรือแนะนำเพิ่มเติม สามารถเปิด Issue ใหม่ได้ใน Repository นี้
